@@ -1,4 +1,7 @@
+import 'package:e_commerce_app/db/cart_db.dart';
+import 'package:e_commerce_app/models/cart_models.dart';
 import 'package:e_commerce_app/utils/colors.dart';
+import 'package:e_commerce_app/utils/text.dart';
 import 'package:flutter/material.dart';
 
 class BuildProductCard extends StatelessWidget {
@@ -98,7 +101,69 @@ class BuildProductCard extends StatelessWidget {
                               fontSize: 18,
                               fontWeight: FontWeight.w600),
                         ),
-                       
+                        ValueListenableBuilder(
+                          valueListenable: CartDb.singleton.cartNotifier,
+                          builder: (BuildContext context,
+                              List<CartModels> cartItems, Widget? _) {
+                            bool isItemInCart = cartItems.any((cartItem) =>
+                                cartItem.title == product["name"]);
+                            return InkWell(
+                              onTap: () async {
+                                // Check if the item is already in the cart
+                                if (isItemInCart) {
+                                  // Remove item from cart
+                                  final cartItem = cartItems.firstWhere(
+                                      (cartItem) =>
+                                          cartItem.title == product["name"]);
+                                  await CartDb.singleton
+                                      .removeCart(cartItem.id);
+
+                                  // ignore: use_build_context_synchronously
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                        content: Text(AppText.itemRemovedText),
+                                        duration: const Duration(seconds: 2)),
+                                  );
+                                } else {
+                                  // Add item to cart
+                                  final newItem = CartModels(
+                                      id: DateTime.now()
+                                          .millisecondsSinceEpoch
+                                          .toString(),
+                                      title: product["name"],
+                                      price: product["price"],
+                                      quantity: product["qty"],
+                                      image: product["icon"],
+                                      unit: product["unit"],
+                                      discount: product["discount"]);
+
+                                  await CartDb.singleton.addCart(newItem);
+
+                                  // ignore: use_build_context_synchronously
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                        content: Text(AppText.itemAddedText),
+                                        duration: const Duration(seconds: 2)),
+                                  );
+                                }
+                              },
+                              child: Container(
+                                width: 34,
+                                height: 34,
+                                decoration: BoxDecoration(
+                                  color: Appcolor.primary,
+                                  borderRadius: BorderRadius.circular(15),
+                                ),
+                                alignment: Alignment.center,
+                                child: Icon(
+                                  isItemInCart ? Icons.check : Icons.add,
+                                  color: Colors.white,
+                                  size: 20, // Adjust size as needed
+                                ),
+                              ),
+                            );
+                          },
+                        ),
                       ],
                     ),
                   ],

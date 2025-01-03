@@ -7,4 +7,5 @@ class AppText {
   static String myCart = 'My Cart';
   static String itemRemovedText = 'Item removed from cart';
   static String checkoutText = 'Go to Checkout';
+  static String itemAddedText = 'Item added to the cart';
 }
