@@ -2,8 +2,7 @@ import 'package:e_commerce_app/utils/colors.dart';
 import 'package:e_commerce_app/utils/text.dart';
 import 'package:flutter/material.dart';
 
-
-Widget buildCheckOut(BuildContext context, ) {
+Widget buildCheckOut(BuildContext context, double totalAmount) {
   return Padding(
     padding: const EdgeInsets.all(20.0),
     child: Column(
@@ -41,7 +40,7 @@ Widget buildCheckOut(BuildContext context, ) {
                 ),
                 padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
                 child: Text(
-                  "\$100",
+               "\$100",
                   style: const TextStyle(
                       color: Colors.white,
                       fontSize: 12,

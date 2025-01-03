@@ -28,8 +28,8 @@ class ImageCart extends StatefulWidget {
 }
 
 class _ImageCartState extends State<ImageCart> {
-  late int quantity;
-  late double totalPrice;
+  // late int quantity;
+  // late double totalPrice;
 
   @override
   Widget build(BuildContext context) {
@@ -119,7 +119,7 @@ class _ImageCartState extends State<ImageCart> {
                     Row(
                       children: [
                         Text(
-                          "$quantity",
+                          "2",
                           style: TextStyle(
                             color: Appcolor.primaryText,
                             fontSize: 16,
@@ -159,7 +159,7 @@ class _ImageCartState extends State<ImageCart> {
                     ),
                     const Spacer(),
                     Text(
-                      "\$${totalPrice.toStringAsFixed(2)}",
+                      "\$100",
                       style: TextStyle(
                         color: Appcolor.primaryText,
                         fontSize: 18,
