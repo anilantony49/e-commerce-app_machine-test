@@ -2,7 +2,7 @@ import 'package:e_commerce_app/db/cart_db.dart';
 import 'package:e_commerce_app/models/cart_models.dart';
 import 'package:e_commerce_app/utils/cart_actions.dart';
 import 'package:e_commerce_app/utils/text.dart';
-import 'package:e_commerce_app/view/cart/widgets/build_check_out.dart';
+import 'package:e_commerce_app/view/cart/cart_screen/widgets/build_check_out.dart';
 import 'package:e_commerce_app/widgets/custom_appbar.dart';
 import 'package:e_commerce_app/widgets/image_cart.dart';
 import 'package:flutter/material.dart';

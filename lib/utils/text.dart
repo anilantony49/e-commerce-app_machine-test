@@ -8,4 +8,10 @@ class AppText {
   static String itemRemovedText = 'Item removed from cart';
   static String checkoutText = 'Go to Checkout';
   static String itemAddedText = 'Item added to the cart';
+  static String checkOutTitle = 'Checkout';
+  static String subtotal = 'Sub Total';
+  static String tax = 'Tax';
+  static String roundOff = 'Round Off';
+  static String total = 'Total';
+  static String placeOrder = 'Place Order';
 }

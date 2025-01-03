@@ -1,5 +1,6 @@
 import 'package:e_commerce_app/utils/colors.dart';
 import 'package:e_commerce_app/utils/text.dart';
+import 'package:e_commerce_app/view/cart/cart_screen/widgets/show_check_out.dart';
 import 'package:flutter/material.dart';
 
 Widget buildCheckOut(BuildContext context, double totalAmount) {
@@ -10,7 +11,7 @@ Widget buildCheckOut(BuildContext context, double totalAmount) {
       children: [
         MaterialButton(
           onPressed: () {
-            // showCheckout(context);
+            showCheckout(context);
           },
           height: 60,
           shape:
