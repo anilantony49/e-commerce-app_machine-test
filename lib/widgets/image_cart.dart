@@ -1,3 +1,5 @@
+import 'package:e_commerce_app/db/cart_db.dart';
+import 'package:e_commerce_app/models/cart_models.dart';
 import 'package:e_commerce_app/utils/colors.dart';
 import 'package:flutter/material.dart';
 
@@ -28,8 +30,52 @@ class ImageCart extends StatefulWidget {
 }
 
 class _ImageCartState extends State<ImageCart> {
-  // late int quantity;
-  // late double totalPrice;
+  late int quantity;
+  late double totalPrice;
+
+  @override
+  void initState() {
+    super.initState();
+    quantity =
+        widget.initialQuantity; // Initialize quantity with the passed value
+    totalPrice = widget.basePrice * quantity; // Calculate initial total price
+  }
+
+  void incrementQuantity() async {
+    setState(() {
+      quantity++;
+      totalPrice = widget.basePrice * quantity; // Update total price
+    });
+    final updatedItem = CartModels(
+        id: widget.id,
+        title: widget.title,
+        price: widget.basePrice.toStringAsFixed(2),
+        quantity: quantity.toString(),
+        unit: widget.unit,
+        image: widget.image,
+        discount: widget.discount);
+
+    await CartDb.singleton.editCart(updatedItem, widget.id);
+  }
+
+  void decrementQuantity() async {
+    setState(() {
+      if (quantity > 1) {
+        quantity--;
+        totalPrice = widget.basePrice * quantity; // Update total price
+      }
+    });
+    final updatedItem = CartModels(
+        id: widget.id,
+        title: widget.title,
+        price: widget.basePrice.toStringAsFixed(2),
+        quantity: quantity.toString(),
+        unit: widget.unit,
+        image: widget.image,
+        discount: widget.discount);
+
+    await CartDb.singleton.editCart(updatedItem, widget.id);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -95,13 +141,14 @@ class _ImageCartState extends State<ImageCart> {
                 Row(
                   children: [
                     InkWell(
-                      onTap: () {},
+                      onTap: decrementQuantity,
                       child: Container(
                         width: 40,
                         height: 40,
                         decoration: BoxDecoration(
                           color: Colors.white,
                           border: Border.all(
+                            // ignore: deprecated_member_use
                             color: Appcolor.placeholder.withOpacity(0.5),
                             width: 1,
                           ),
@@ -119,7 +166,7 @@ class _ImageCartState extends State<ImageCart> {
                     Row(
                       children: [
                         Text(
-                          "2",
+                         "$quantity",
                           style: TextStyle(
                             color: Appcolor.primaryText,
                             fontSize: 16,
@@ -138,7 +185,7 @@ class _ImageCartState extends State<ImageCart> {
                     ),
                     const SizedBox(width: 15),
                     InkWell(
-                      onTap: () {},
+                      onTap: incrementQuantity,
                       child: Container(
                           width: 40,
                           height: 40,
@@ -159,7 +206,7 @@ class _ImageCartState extends State<ImageCart> {
                     ),
                     const Spacer(),
                     Text(
-                      "\$100",
+                        "\$${totalPrice.toStringAsFixed(2)}",
                       style: TextStyle(
                         color: Appcolor.primaryText,
                         fontSize: 18,

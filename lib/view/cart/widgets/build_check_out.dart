@@ -40,7 +40,7 @@ Widget buildCheckOut(BuildContext context, double totalAmount) {
                 ),
                 padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
                 child: Text(
-               "\$100",
+                  "\$${totalAmount.toStringAsFixed(2)}",
                   style: const TextStyle(
                       color: Colors.white,
                       fontSize: 12,
