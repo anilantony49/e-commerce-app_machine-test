@@ -1,56 +1,40 @@
+import 'package:e_commerce_app/payment_simulation_screen.dart';
 import 'package:e_commerce_app/utils/colors.dart';
-import 'package:e_commerce_app/utils/text.dart';
-import 'package:e_commerce_app/view/cart/cart_screen/widgets/show_check_out.dart';
 import 'package:flutter/material.dart';
 
+// build_check_out.dart
 Widget buildCheckOut(BuildContext context, double totalAmount) {
-  return Padding(
-    padding: const EdgeInsets.all(20.0),
-    child: Column(
-      mainAxisAlignment: MainAxisAlignment.end,
+  return Container(
+    padding: const EdgeInsets.all(16),
+    color: Colors.white,
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
+        Text(
+          "Total: \$${totalAmount.toStringAsFixed(2)}",
+          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+        ),
         MaterialButton(
           onPressed: () {
-            showCheckout(context);
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) =>
+                      PaymentSimulationScreen(totalAmount: totalAmount)),
+            );
           },
-          height: 60,
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(19)),
-          minWidth: double.maxFinite,
+          minWidth: 100,
           elevation: 0.1,
           color: Appcolor.primary,
-          child: Stack(
-            alignment: Alignment.centerRight,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    AppText.checkoutText,
-                    style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 18,
-                        fontWeight: FontWeight.w600),
-                  ),
-                ],
-              ),
-              Container(
-                decoration: BoxDecoration(
-                  color: Colors.black12,
-                  borderRadius: BorderRadius.circular(5),
-                ),
-                padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
-                child: Text(
-                  "\$${totalAmount.toStringAsFixed(2)}",
-                  style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600),
-                ),
-              )
-            ],
-          ),
-        )
+          height: 50,
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(19)),
+          child: const Text("Proceed to Payment",
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 15,
+              )),
+        ),
       ],
     ),
   );

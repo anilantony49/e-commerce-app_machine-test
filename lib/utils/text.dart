@@ -13,10 +13,10 @@ class AppText {
   static String tax = 'Tax';
   static String roundOff = 'Round Off';
   static String total = 'Total';
-  static String placeOrder = 'Place Order';
+  static String buyNow = 'Buy Now';
   static String billedSuccessfully = 'Billed Successfully';
   static String customerInfo = 'Customer Info';
-  static String customerName = 'Mr. Deepak Rajkumar';
+  static String customerName = 'Mr.John Doe ';
   static String customerNumber = '99XXXXXXXX';
   static String customerAddress =
       'No.30/21, Winston Apartments, Chennai-600038';
