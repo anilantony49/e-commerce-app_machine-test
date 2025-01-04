@@ -4,6 +4,7 @@ import 'package:e_commerce_app/utils/text.dart';
 import 'package:e_commerce_app/view/cart/check_out_screen/widgets/build_summary_row.dart';
 import 'package:e_commerce_app/view/cart/check_out_screen/widgets/build_table_body.dart';
 import 'package:e_commerce_app/view/cart/check_out_screen/widgets/build_table_header.dart';
+import 'package:e_commerce_app/view/cart/estimate/estimate_view.dart';
 import 'package:e_commerce_app/widgets/round_button.dart';
 import 'package:flutter/material.dart';
 
@@ -77,7 +78,14 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
           const SizedBox(height: 25),
           RoundButton(
             title: AppText.placeOrder,
-            onPressed: () {},
+            onPressed: () {
+               Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => EstimateView(grandTotal: grandTotal),
+                ),
+              );
+            },
           ),
           const SizedBox(height: 15),
         ],
