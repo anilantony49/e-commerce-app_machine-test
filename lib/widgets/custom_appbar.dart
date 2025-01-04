@@ -1,29 +1,31 @@
-// custom_app_bar.dart
-import 'package:e_commerce_app/utils/colors.dart';
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 
-class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  final String title;
-
-  const CustomAppBar({super.key, required this.title});
-
-  @override
-  Widget build(BuildContext context) {
+class CustomAppbar {
+  static AppBar show(BuildContext context, enableIcon) {
     return AppBar(
-      backgroundColor: Appcolor.appBarColor,
-      elevation: 0.5,
+      elevation: 0,
       centerTitle: true,
-      title: Text(
-        title,
-        style: TextStyle(
-          color: Appcolor.primaryText,
-          fontSize: 20,
-          fontWeight: FontWeight.w700,
+      leading: enableIcon
+          ? FadeInLeft(
+              delay: const Duration(milliseconds: 400),
+              duration: const Duration(milliseconds: 1000),
+              child: IconButton(
+                onPressed: () => Navigator.pop(context),
+                icon: const Icon(Icons.arrow_back),
+              ),
+            )
+          : const SizedBox(),
+      title: FadeInDown(
+        delay: const Duration(milliseconds: 400),
+        duration: const Duration(milliseconds: 1000),
+        child: const Text(
+          'Tweel.',
+          style: TextStyle(
+            fontSize: 24,
+          ),
         ),
       ),
     );
   }
-
-  @override
-  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }

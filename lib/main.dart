@@ -1,6 +1,9 @@
-import 'package:e_commerce_app/main_screen.dart';
 import 'package:e_commerce_app/models/cart_models.dart';
+import 'package:e_commerce_app/view/bloc/user_sign_in/sign_in_bloc.dart';
+import 'package:e_commerce_app/view/cubit/toggle_password/toggle_password_cubit.dart';
+import 'package:e_commerce_app/view/user_sign_in/user_signin_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/adapters.dart';
 
 Future<void> main() async {
@@ -16,11 +19,17 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'E-commerce app',
-      theme: ThemeData(),
-      home: MainScreen(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => SignInBloc()),
+        BlocProvider(create: (context) => TogglePasswordCubit()),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'E-commerce app',
+        theme: ThemeData(),
+        home: UserSignInPage(),
+      ),
     );
   }
 }

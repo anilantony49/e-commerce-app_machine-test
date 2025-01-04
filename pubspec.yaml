@@ -28,15 +28,22 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  animate_do: ^3.3.4
   animated_text_kit: ^4.2.2
   cupertino_icons: ^1.0.8
+  dio: ^5.7.0
   flutter:
     sdk: flutter
+  flutter_bloc: ^8.1.6
   hive_flutter: ^1.1.0
+  http: ^1.2.2
+  multi_bloc_builder_widget: ^1.0.1
   open_filex: ^4.6.0
+  page_transition: ^2.2.1
   path_provider: ^2.1.5
   pdf: ^3.11.1
   printing: ^5.13.4
+  shared_preferences: ^2.3.5
   smooth_page_indicator: ^1.2.0+3
   uuid: ^4.5.1
 
