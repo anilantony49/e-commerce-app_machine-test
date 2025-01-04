@@ -1,5 +1,6 @@
 import 'package:e_commerce_app/models/cart_models.dart';
 import 'package:e_commerce_app/view/bloc/user_sign_in/sign_in_bloc.dart';
+import 'package:e_commerce_app/view/bloc/user_sign_up/sign_up_bloc.dart';
 import 'package:e_commerce_app/view/cubit/toggle_password/toggle_password_cubit.dart';
 import 'package:e_commerce_app/view/user_sign_in/user_signin_page.dart';
 import 'package:flutter/material.dart';
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => SignInBloc()),
+        BlocProvider(create: (context) => SignUpBloc()),
         BlocProvider(create: (context) => TogglePasswordCubit()),
       ],
       child: MaterialApp(
