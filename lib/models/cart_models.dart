@@ -17,6 +17,8 @@ class CartModels {
   final String unit;
   @HiveField(6)
   final String discount;
+  @HiveField(7)
+  final String? description;
 
   CartModels(
       {required this.id,
@@ -25,5 +27,6 @@ class CartModels {
       required this.quantity,
       required this.unit,
       required this.image,
-      required this.discount});
+      required this.discount,
+      this.description});
 }

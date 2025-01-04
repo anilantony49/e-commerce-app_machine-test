@@ -27,7 +27,7 @@ Widget buildSearchBar(TextEditingController controller) {
           border: InputBorder.none,
           enabledBorder: InputBorder.none,
           focusedBorder: InputBorder.none,
-          hintText: AppText.searchStore,
+          hintText: AppText.searchItem,
           hintStyle: TextStyle(
               color: Appcolor.secondaryText,
               fontSize: 14,

@@ -10,8 +10,10 @@ import 'package:flutter/material.dart';
 
 class PaymentSimulationScreen extends StatefulWidget {
   final double totalAmount;
+  final CartModels? product;
 
-  const PaymentSimulationScreen({super.key, required this.totalAmount});
+  const PaymentSimulationScreen(
+      {super.key, required this.totalAmount, this.product});
 
   @override
   State<PaymentSimulationScreen> createState() =>
@@ -30,10 +32,18 @@ class _PaymentSimulationScreenState extends State<PaymentSimulationScreen> {
   }
 
   void _fetchItems() async {
-    List<CartModels> fetchedItems = await CartDb.singleton.getCart();
-    setState(() {
-      items = fetchedItems;
-    });
+    if (widget.product != null) {
+      // If a single product is passed, display only that
+      setState(() {
+        items = [widget.product!]; // Add the single product to the list
+      });
+    } else {
+      // If no product is passed, fetch all items from the cart
+      List<CartModels> fetchedItems = await CartDb.singleton.getCart();
+      setState(() {
+        items = fetchedItems;
+      });
+    }
   }
 
   double _calculateSubtotal() {

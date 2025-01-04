@@ -2,6 +2,7 @@ import 'package:e_commerce_app/db/cart_db.dart';
 import 'package:e_commerce_app/models/cart_models.dart';
 import 'package:e_commerce_app/utils/colors.dart';
 import 'package:e_commerce_app/utils/text.dart';
+import 'package:e_commerce_app/view/home/product_details_screen.dart';
 import 'package:flutter/material.dart';
 
 class BuildProductCard extends StatelessWidget {
@@ -25,6 +26,14 @@ class BuildProductCard extends StatelessWidget {
       itemBuilder: (context, index) {
         var product = products[index];
         return InkWell(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => ProductDetailsScreen(product: product),
+              ),
+            );
+          },
           child: Container(
             width: 180,
             margin: const EdgeInsets.symmetric(horizontal: 8),
@@ -62,11 +71,15 @@ class BuildProductCard extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Image.asset(
-                      product["icon"]!,
-                      width: 100,
-                      height: 80,
-                      fit: BoxFit.contain,
+                    Hero(
+                      tag: 'product-icon-${product["name"]}', // Unique tag
+
+                      child: Image.asset(
+                        product["icon"]!,
+                        width: 100,
+                        height: 80,
+                        fit: BoxFit.contain,
+                      ),
                     ),
                     const Spacer(),
                     Text(

@@ -77,19 +77,26 @@ class _HomeScreenState extends State<HomeScreen> {
                   expansionFactor: 2,
                 ),
               ),
+              buildTitle(title: AppText.ecommerceTitle),
+              BuildProductCard(
+                products: ecommerce,
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              buildTitle(title: AppText.groceriesTitle),
+              BuildProductCard(
+                products: groceries,
+              ),
+              const SizedBox(
+                height: 15,
+              ),
               buildTitle(title: AppText.fruitTitle),
               BuildProductCard(
                 products: fruits,
               ),
               const SizedBox(
                 height: 15,
-              ),
-              buildTitle(title: AppText.groceriesTitle),
-              const SizedBox(
-                height: 15,
-              ),
-              BuildProductCard(
-                products: groceries,
               ),
             ],
           ),
