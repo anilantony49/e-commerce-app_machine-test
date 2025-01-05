@@ -1,9 +1,10 @@
 import 'package:e_commerce_app/utils/colors.dart';
+import 'package:e_commerce_app/utils/constants.dart';
 import 'package:e_commerce_app/utils/text.dart';
+import 'package:e_commerce_app/view/account/account_view.dart';
 import 'package:flutter/material.dart';
 
-
-Widget buildHeader() {
+Widget buildHeader(BuildContext context) {
   return Padding(
     padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
     child: Row(
@@ -26,8 +27,13 @@ Widget buildHeader() {
         ),
         const Spacer(),
         ClipOval(
-          child: Image.asset("assets/img/profile picture.webp",
-              width: 55, height: 55, fit: BoxFit.cover),
+          child: InkWell(
+            onTap: (){
+              nextScreen(context, AccountView());
+            },
+            child: Image.asset("assets/img/profile picture.webp",
+                width: 55, height: 55, fit: BoxFit.cover),
+          ),
         ),
       ],
     ),

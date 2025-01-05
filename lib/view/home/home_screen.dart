@@ -56,7 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              buildHeader(),
+              buildHeader(context),
               const SizedBox(
                 height: 15,
               ),
