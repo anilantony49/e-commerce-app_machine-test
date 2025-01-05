@@ -1,12 +1,12 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:e_commerce_app/utils/constants.dart';
 import 'package:e_commerce_app/utils/validations.dart';
+import 'package:e_commerce_app/view/cubit/drop_down/drop_down_cubit.dart';
 import 'package:e_commerce_app/view/user_sign_up/user_signup_two.dart';
 import 'package:e_commerce_app/widgets/custom_btn.dart';
 import 'package:e_commerce_app/widgets/custom_txt_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 
 class SignUpOneFieldWidget extends StatefulWidget {
   const SignUpOneFieldWidget({super.key});
@@ -38,8 +38,7 @@ class _SignUpOneFieldWidgetState extends State<SignUpOneFieldWidget> {
                 children: [
                   const Text(
                     'Create an account',
-                    style:
-                        TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
                   ),
                   kHeight(10),
                   const Text(
@@ -89,32 +88,30 @@ class _SignUpOneFieldWidgetState extends State<SignUpOneFieldWidget> {
               ),
               kHeight(20),
 
-              // Account type field
-              // const AccountTypeDropDown(),
               kHeight(25),
 
               // Continue button
-              // BlocBuilder<DropdownCubit, DropdownState>(
-              //   builder: (context, state) {
-              //     return CustomButton(
-              //       buttonText: 'Continue',
-              //       onPressed: () {
-              //         FocusScope.of(context).unfocus();
-              //         if (formKey.currentState!.validate()) {
-              //           nextScreen(
-              //             context,
-              //             UserSignUpPageTwo(
-              //               email: emailController.text,
-              //               accountType: state.name,
-              //               fullName: fullnameController.text,
-              //               phoneNo: phoneNumberController.text,
-              //             ),
-              //           );
-              //         }
-              //       },
-              //     );
-              //   },
-              // ),
+              BlocBuilder<DropdownCubit, DropdownState>(
+                builder: (context, state) {
+                  return CustomButton(
+                    buttonText: 'Continue',
+                    onPressed: () {
+                      FocusScope.of(context).unfocus();
+                      if (formKey.currentState!.validate()) {
+                        nextScreen(
+                          context,
+                          UserSignUpPageTwo(
+                            email: emailController.text,
+                            accountType: state.name,
+                            fullName: fullnameController.text,
+                            phoneNo: phoneNumberController.text,
+                          ),
+                        );
+                      }
+                    },
+                  );
+                },
+              ),
             ],
           ),
         ),

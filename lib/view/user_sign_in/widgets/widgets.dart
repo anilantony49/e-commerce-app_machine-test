@@ -16,12 +16,11 @@ class SignInWidgets {
             children: [
               TextSpan(
                 text: "Don't have an account yet? ",
-                style: TextStyle(
-                  color: Theme.of(context).colorScheme.secondary,
-                ),
+                style: TextStyle(color: Colors.black),
               ),
-              const TextSpan(
+              TextSpan(
                 text: 'Sign Up.',
+                style: TextStyle(color: Colors.green,fontWeight: FontWeight.bold),
               ),
             ],
           ),

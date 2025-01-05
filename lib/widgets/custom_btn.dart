@@ -18,8 +18,9 @@ class CustomButton extends StatelessWidget {
     return SizedBox(
       width: double.infinity,
       child: MaterialButton(
+        color: Colors.green,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(5),
+          borderRadius: BorderRadius.circular(10),
         ),
         padding: const EdgeInsets.fromLTRB(20, 16, 20, 16),
         onPressed: isLoading ? null : onPressed,
@@ -30,7 +31,7 @@ class CustomButton extends StatelessWidget {
                 child: Center(
                   child: CircularProgressIndicator(
                     strokeWidth: 2,
-                    color: Theme.of(context).colorScheme.onPrimaryContainer,
+                    color: Colors.black
                   ),
                 ),
               )
@@ -41,7 +42,7 @@ class CustomButton extends StatelessWidget {
                   buttonText,
                   style: TextStyle(
                     fontSize: 16,
-                    color: Theme.of(context).colorScheme.onPrimaryContainer,
+                    color: Colors.white,
                   ),
                 ),
               ),

@@ -112,18 +112,6 @@ class _SignInFieldWidgetState extends State<SignInFieldWidget> {
                       }
                     },
                   ),
-                  kHeight(10),
-                  InkWell(
-                    onTap: () {
-                      // nextScreen(context, const ForgotPasswordPage());
-                    },
-                    child: const Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        'Forget Password?',
-                      ),
-                    ),
-                  ),
                 ],
               ),
             ),
@@ -146,18 +134,10 @@ class _SignInFieldWidgetState extends State<SignInFieldWidget> {
         "Incorrect password",
       );
     }
-    // if (state is BlockedbyAdminErrorState) {
-    //   customSnackbar(
-    //     context,
-    //     'You have by blocked by tweel',
-    //   );
-    // }
+
     if (state is UserSignInSuccessState) {
-      // context.read<ProfileBloc>().add(ProfileInitialFetchEvent());
-      // context.read<UserBloc>().add(FetchAllUserEvent());
-      // context.read<PostBloc>().add(PostInitialFetchEvent());
       nextScreenRemoveUntil(context, const MainScreen());
-      // mySystemTheme(context);
+
       context.read<TogglePasswordCubit>().reset();
     }
     if (state is UserSignInErrorState) {

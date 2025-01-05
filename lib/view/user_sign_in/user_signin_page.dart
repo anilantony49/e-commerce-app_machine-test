@@ -19,7 +19,7 @@ class _UserSignInPageState extends State<UserSignInPage> {
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
-        // backgroundColor: Theme.of(context).colorScheme.surface,
+        backgroundColor: Colors.white,
         extendBodyBehindAppBar: true,
         appBar: CustomAppbar.show(context, false),
         body: SingleChildScrollView(

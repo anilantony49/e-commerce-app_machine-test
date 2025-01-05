@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 class CustomTxtFormField extends StatelessWidget {
@@ -24,8 +25,6 @@ class CustomTxtFormField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // var theme = Theme.of(context);
-
     return TextFormField(
       obscureText: obscureText,
       readOnly: readOnly ?? false,
@@ -39,7 +38,6 @@ class CustomTxtFormField extends StatelessWidget {
         errorMaxLines: 2,
         errorStyle: const TextStyle(),
         suffixIcon: suffix,
-        suffixIconColor: Theme.of(context).colorScheme.primary,
         prefixIconConstraints: const BoxConstraints(minWidth: 0, minHeight: 0),
         prefixIcon: const SizedBox(width: 15),
         contentPadding: const EdgeInsets.symmetric(
@@ -48,29 +46,29 @@ class CustomTxtFormField extends StatelessWidget {
         ),
         hintText: hintText,
         hintStyle: TextStyle(
-          // color: theme.colorScheme.secondary,
+          color: Colors.grey,
           fontSize: 14,
-          // fontWeight: ,
+          fontWeight: FontWeight.w400,
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(5),
           borderSide: BorderSide(
-            // color: theme.colorScheme.outline,
+            color: Colors.grey,
             width: 1,
           ),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(5),
           borderSide: BorderSide(
-            // color: theme.colorScheme.onPrimary,
-            width: 1.0,
+            color: Colors.green,
+            width: 2.0,
           ),
         ),
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(5.0),
           borderSide: const BorderSide(
             color: Colors.red,
-            width: 1.0,
+            width: 2.0,
           ),
         ),
         focusedErrorBorder: OutlineInputBorder(

@@ -2,6 +2,7 @@ import 'package:animate_do/animate_do.dart';
 import 'package:e_commerce_app/utils/alerts_and_navigators.dart';
 import 'package:e_commerce_app/utils/constants.dart';
 import 'package:e_commerce_app/utils/validations.dart';
+import 'package:e_commerce_app/view/bloc/user_sign_up/sign_up_bloc.dart';
 import 'package:e_commerce_app/view/cubit/toggle_password/toggle_password_cubit.dart';
 import 'package:e_commerce_app/view/user_sign_up/widgets/widgets.dart';
 import 'package:e_commerce_app/widgets/custom_btn.dart';
@@ -112,10 +113,9 @@ class _SignUpTwoFieldWidgetState extends State<SignUpTwoFieldWidget> {
                         context.read<TogglePasswordCubit>().toggle();
                       },
                       child: Icon(
-                        state ? Icons.visibility : Icons.visibility_off,
-                        size: 20,
-                        color: Theme.of(context).colorScheme.secondary,
-                      ),
+                          state ? Icons.visibility : Icons.visibility_off,
+                          size: 20,
+                          color: Colors.grey),
                     ),
                   );
                 },
@@ -123,26 +123,28 @@ class _SignUpTwoFieldWidgetState extends State<SignUpTwoFieldWidget> {
               kHeight(25),
 
               // Sign Up button
-              // BlocListener<SignUpBloc, SignUpState>(
-              //   listener: signUpListener,
-              //   child: CustomButton(
-              //     buttonText: 'Sign Up',
-              //     onPressed: () {
-              //       FocusScope.of(context).unfocus();
-              //       if (passWordController.text ==
-              //           confirmPasswordController.text) {
-              //         if (formKey.currentState!.validate()) {
-              //           context
-              //               .read<SignUpBloc>()
-              //               .add(UserOtpVerificationEvent(email: widget.email));
-              //         }
-              //       } else {
-              //         customSnackbar(context, "Passwords doesn't match",
-              //            );
-              //       }
-              //     },
-              //   ),
-              // )
+              BlocListener<SignUpBloc, SignUpState>(
+                listener: signUpListener,
+                child: CustomButton(
+                  buttonText: 'Sign Up',
+                  onPressed: () {
+                    FocusScope.of(context).unfocus();
+                    if (passWordController.text ==
+                        confirmPasswordController.text) {
+                      if (formKey.currentState!.validate()) {
+                        context
+                            .read<SignUpBloc>()
+                            .add(UserOtpVerificationEvent(email: widget.email));
+                      }
+                    } else {
+                      customSnackbar(
+                        context,
+                        "Passwords doesn't match",
+                      );
+                    }
+                  },
+                ),
+              )
             ],
           ),
         ),
@@ -150,18 +152,18 @@ class _SignUpTwoFieldWidgetState extends State<SignUpTwoFieldWidget> {
     );
   }
 
-  // void signUpListener(BuildContext context, SignUpState state) {
-  //   if (state is UserOtpSuccessState) {
-  //     SignUpWidgets.validateEmail(
-  //       context: context,
-  //       fullName: widget.fullName,
-  //       email: widget.email,
-  //       phoneNo: widget.phoneNo,
-  //       accountType: widget.accountType,
-  //       otpController: otpController,
-  //       username: userNameController.text,
-  //       password: passWordController.text,
-  //     );
-  //   }
-  // }
+  void signUpListener(BuildContext context, SignUpState state) {
+    if (state is UserOtpSuccessState) {
+      SignUpWidgets.validateEmail(
+        context: context,
+        fullName: widget.fullName,
+        email: widget.email,
+        phoneNo: widget.phoneNo,
+        accountType: widget.accountType,
+        otpController: otpController,
+        username: userNameController.text,
+        password: passWordController.text,
+      );
+    }
+  }
 }

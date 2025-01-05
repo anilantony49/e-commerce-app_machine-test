@@ -18,9 +18,9 @@ class _UserSignUpPageOneState extends State<UserSignUpPageOne> {
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
-        backgroundColor: Theme.of(context).colorScheme.surface,
+        backgroundColor: Colors.white,
         extendBodyBehindAppBar: true,
-        appBar: CustomAppbar.show(context,true),
+        appBar: CustomAppbar.show(context, true),
         body: SingleChildScrollView(
           child: Container(
             constraints: BoxConstraints(minHeight: mediaHeight),

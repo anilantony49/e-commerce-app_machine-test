@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:e_commerce_app/models/user_model.dart';
-import 'package:e_commerce_app/repository/auth_repo.dart';
+import 'package:e_commerce_app/repository/auth_repo/auth_repo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
