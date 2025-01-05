@@ -30,8 +30,10 @@ environment:
 dependencies:
   animate_do: ^3.3.4
   animated_text_kit: ^4.2.2
+  colorful_safe_area: ^1.0.0
   cupertino_icons: ^1.0.8
   dio: ^5.7.0
+  dotted_border: ^2.1.0
   flutter:
     sdk: flutter
   flutter_animate: ^4.5.2

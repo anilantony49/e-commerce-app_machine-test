@@ -1,8 +1,8 @@
 import 'dart:convert';
 
-import 'package:e_commerce_app/models/user_model.dart';
-import 'package:e_commerce_app/services/shared_preference.dart';
-import 'package:e_commerce_app/utils/api_endpoints.dart';
+import 'package:e_commerce_app/data/models/user_model/user_model.dart';
+import 'package:e_commerce_app/data/services/shared_preference.dart';
+import 'package:e_commerce_app/core/utils/api_endpoints.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 

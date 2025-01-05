@@ -1,6 +1,6 @@
 import 'package:e_commerce_app/db/cart_db.dart';
-import 'package:e_commerce_app/models/cart_models.dart';
-import 'package:e_commerce_app/utils/colors.dart';
+import 'package:e_commerce_app/data/models/cart_model/cart_models.dart';
+import 'package:e_commerce_app/core/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 class ImageCart extends StatefulWidget {

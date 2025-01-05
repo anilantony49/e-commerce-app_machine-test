@@ -1,11 +1,11 @@
-import 'package:e_commerce_app/models/cart_models.dart';
-import 'package:e_commerce_app/view/bloc/profile/profile_bloc.dart';
-import 'package:e_commerce_app/view/bloc/user/user_bloc.dart';
-import 'package:e_commerce_app/view/bloc/user_sign_in/sign_in_bloc.dart';
-import 'package:e_commerce_app/view/bloc/user_sign_up/sign_up_bloc.dart';
-import 'package:e_commerce_app/view/cubit/drop_down/drop_down_cubit.dart';
-import 'package:e_commerce_app/view/cubit/toggle_password/toggle_password_cubit.dart';
-import 'package:e_commerce_app/view/user_sign_in/user_signin_page.dart';
+import 'package:e_commerce_app/data/models/cart_model/cart_models.dart';
+import 'package:e_commerce_app/presentation/bloc/profile/profile_bloc.dart';
+import 'package:e_commerce_app/presentation/bloc/user/user_bloc.dart';
+import 'package:e_commerce_app/presentation/bloc/user_sign_in/sign_in_bloc.dart';
+import 'package:e_commerce_app/presentation/bloc/user_sign_up/sign_up_bloc.dart';
+import 'package:e_commerce_app/presentation/cubit/drop_down/drop_down_cubit.dart';
+import 'package:e_commerce_app/presentation/cubit/toggle_password/toggle_password_cubit.dart';
+import 'package:e_commerce_app/presentation/splash/splash_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/adapters.dart';
@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'E-commerce app',
         theme: ThemeData(),
-        home: UserSignInPage(),
+        home: SplashPage(),
       ),
     );
   }
