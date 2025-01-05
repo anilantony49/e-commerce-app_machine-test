@@ -95,6 +95,7 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
                       context,
                       InvoiceReceiptView(
                         grandTotal: grandTotal,
+                        product: widget.product,
                       ));
                 },
               ),

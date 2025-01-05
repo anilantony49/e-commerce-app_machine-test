@@ -21,6 +21,7 @@ class _InvoiceReceiptViewState extends State<InvoiceReceiptView>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> scaleAnimation;
+  List<CartModels> items = [];
 
   @override
   void initState() {
@@ -35,8 +36,6 @@ class _InvoiceReceiptViewState extends State<InvoiceReceiptView>
       CurvedAnimation(parent: _controller, curve: Curves.easeInOut),
     );
   }
-
-  List<CartModels> items = [];
 
   void _fetchItems() async {
     if (widget.product != null) {

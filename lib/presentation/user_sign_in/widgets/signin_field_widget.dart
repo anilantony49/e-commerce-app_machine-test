@@ -80,7 +80,7 @@ class _SignInFieldWidgetState extends State<SignInFieldWidget> {
                             context.read<TogglePasswordCubit>().toggle();
                           },
                           child: Icon(
-                            state ? Icons.visibility : Icons.visibility_off,
+                            state ? Icons.visibility_off : Icons.visibility,
                             size: 20,
                             color: Theme.of(context).colorScheme.secondary,
                           ),
