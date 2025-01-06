@@ -82,7 +82,7 @@ class _SignInFieldWidgetState extends State<SignInFieldWidget> {
                           child: Icon(
                             state ? Icons.visibility_off : Icons.visibility,
                             size: 20,
-                            color: Theme.of(context).colorScheme.secondary,
+                            color: Colors.grey,
                           ),
                         ),
                         obscureText: state,
@@ -136,6 +136,7 @@ class _SignInFieldWidgetState extends State<SignInFieldWidget> {
     }
 
     if (state is UserSignInSuccessState) {
+      customSnackbar(context, "It will take a while, please wait...");
       nextScreenRemoveUntil(context, const MainScreen());
 
       context.read<TogglePasswordCubit>().reset();

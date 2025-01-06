@@ -73,11 +73,12 @@ class SignUpWidgets {
             BlocConsumer<SignUpBloc, SignUpState>(
               listener: (context, state) {
                 if (state is UserSignUpSuccessState) {
+                  customSnackbar(
+                      context, "It will take a while, please wait...");
                   context.read<ProfileBloc>().add(ProfileInitialFetchEvent());
                   context.read<UserBloc>().add(FetchAllUserEvent());
-                  // context.read<PostBloc>().add(PostInitialFetchEvent());
+
                   nextScreenRemoveUntil(context, const MainScreen());
-                  // mySystemTheme(context);
                   context.read<TogglePasswordCubit>().reset();
                 }
                 if (state is UsernameExistsErrorState) {

@@ -87,7 +87,7 @@ class _SignUpTwoFieldWidgetState extends State<SignUpTwoFieldWidget> {
                       child: Icon(
                         state ? Icons.visibility_off : Icons.visibility,
                         size: 20,
-                        color: Theme.of(context).colorScheme.secondary,
+                        color:  Colors.grey,
                       ),
                     ),
                   );

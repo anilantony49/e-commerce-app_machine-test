@@ -86,7 +86,6 @@ class _SignUpOneFieldWidgetState extends State<SignUpOneFieldWidget> {
                   return null;
                 },
               ),
-              kHeight(20),
 
               kHeight(25),
 
